@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<h1>Delete Product</h1>
+<p>Are you sure you want to delete the product "{{ product.name }}"?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+    <a href="{{ back_url }}">Cancel</a>
+</form>

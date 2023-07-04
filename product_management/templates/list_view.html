@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<h1>Product List</h1>
+<ul>
+  {% for product in products %}
+    <li>
+      {{ product.name }} - {{ product.description }} -
+      Quantity: {{ product.quantity }}
+      {% if product.quantity > 0 %}
+        (Available in warehouse)
+      {% else %}
+        (Out of stock)
+      {% endif %}
+      <a href="{% url 'detail_view' product.id %}">View</a>
+      <a href="{% url 'update_view' product.id %}">Update</a>
+      <a href="{% url 'delete_view' product.id %}">Delete</a>
+    </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create_view' %}">Add Product</a>

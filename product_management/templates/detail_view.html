@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<h1>Product Detail</h1>
+<p>Name: {{ product.name }}</p>
+<p>Description: {{ product.description }}</p>
+<p>Quantity: {{ product.quantity }}</p>
+
+<a href="{% url 'delete_view' product.pk %}">Delete</a>
+<a href="{% url 'update_view' product.pk %}">Update</a>
+
+<a href="{{ back_url }}">Back</a>
